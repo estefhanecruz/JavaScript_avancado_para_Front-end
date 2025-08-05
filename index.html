@@ -9,6 +9,15 @@
 <h1 id="title">Olá, Mundo</h1>
 <p id="description">Este é um exemplo simples de manipulação do DOM</p>
 <button id="change-text-buttom">Clique para alterar o título</button>
+
+<h2 >Vamos alterar a cor de fundo da página. Clique no botão abaixo</h2>
+<button id="alterador-cor">Clique aqui!</button>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+    }
+</style>
 <script>
     //Seleção de elemetos do DOM usando métodos
     const title = document.getElementById('title'); //Seleciona o elemento h1
@@ -24,6 +33,15 @@
         //Modifica a propriedade innerText do elemento <h1>
             title.innerText = 'O título foi alterado';
     });
+    //Exerício: Alterar cor de fundo
+    const alteraCor = document.getElementById('alterador-cor');
+    alteraCor.addEventListener('click', function(){
+        const corEscolhida = prompt('Informe uma cor em inglês');
+            document.body.style.backgroundColor = corEscolhida;
+
+    })
+
+
 </script>
     
 </body>
