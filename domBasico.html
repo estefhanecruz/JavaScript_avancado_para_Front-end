@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionamento básico do DOM</title>
+</head>
+<body>
+<h1 id="title">Olá, Mundo</h1>
+<p id="description">Este é um exemplo simples de manipulação do DOM</p>
+<button id="change-text-buttom">Clique para alterar o título</button>
+
+<h2 >Vamos alterar a cor de fundo da página. Clique no botão abaixo</h2>
+<button id="alterador-cor">Clique aqui!</button>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: white;
+    }
+</style>
+<script>
+    //Seleção de elemetos do DOM usando métodos
+    const title = document.getElementById('title'); //Seleciona o elemento h1
+    const description = document.getElementById('description'); //Seleciona o elemento <p>
+    const buttom = document.getElementById('change-text-buttom'); //Seleciona o elemento <buttom>
+
+    //Exibição das propriedades dos elementos
+    console.log('texto do título: ', title.innerText); //Propriedade innerText
+    console.log('texto da descrição: ', description.innerText); //Propriedade innerText
+
+    //Manipulação de um elemento via método
+    buttom.addEventListener('click', function(){
+        //Modifica a propriedade innerText do elemento <h1>
+            title.innerText = 'O título foi alterado';
+    });
+    //Exerício: Alterar cor de fundo
+    const alteraCor = document.getElementById('alterador-cor');
+    alteraCor.addEventListener('click', function(){
+        const corEscolhida = prompt('Informe uma cor em inglês');
+            document.body.style.backgroundColor = corEscolhida;
+
+    })
+
+
+</script>
+    
+</body>
+</html>
