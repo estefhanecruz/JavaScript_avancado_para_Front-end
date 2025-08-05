@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capturando Elementos DOM - parte 2</title>
+</head>
+<body>
+    <h1>Título Principal</h1>
+    <p class="texto">Parágrafo 1</p>
+    <p class="texto">Parágrafo 2</p>
+    <p class="texto">Parágrafo 3</p>
+    <p>Parágrafo 4</p>
+
+    <button id="btn-alterar-por-classe">Alterar todos os parágrafos (classe)</button>
+    <button id="btn-alterar-por-tag">Alterar todos os parágrafos (tag)</button>
+    <button id="btn-alterar-por-query">Alterar todos os parágrafos (querySelectorAll)</button>
+
+    <script>
+        //Usando getElementByClassName para selecionar todos os parágrafos com a classe .texto
+        const paragsByClass = document.getElementsByClassName('texto');
+
+        //Usando getElementByTagName para selecionar todos os elementos <p>
+        const paragsByTag = document.getElementsByTagName('p');
+        
+        //Usando querySelectorAll pra selecionar todos os elementos <p> com a classe .texto
+        const paragsByQuery = document.querySelectorAll('.texto');
+        
+        //Alterar o texto de todos os parágrafos utilizando getElementByClassName
+        //Altera todos os elementos com a classe .texto
+        document.getElementById('btn-alterar-por-classe').addEventListener('click', function(){
+            for (let i=0; i<paragsByClass.length; i++){
+                paragsByClass[i].innerText = `Alterado por classe - parágrafo ${i+1}`;
+            }
+        });
+
+        //Alterar o texto de todos os parágrafos usando getElementByTagName
+        //Altera todos os elementos com a tag <p>
+        document.getElementById('btn-alterar-por-tag').addEventListener('click', function(){
+            for (let i = 0; i<paragsByTag.length;i++){
+                paragsByTag[i].innerText = `Alterado por tag - parágrafo ${i+1}`;
+            }
+        });
+
+        //Altera o texto de todos os parágrafos usando querySelectorAll
+        //Altera todos os elementos com a classe .texto
+        document.getElementById('btn-alterar-por-query').addEventListener('click', function(){
+            paragsByQuery.forEach((paragrafo, index)=>{
+                paragrafo.innerText = `Alterado por querySelectorAll - Parágrafo ${index + 1}`;
+            });
+        });
+
+    </script>
+
+</body>
+</html>
