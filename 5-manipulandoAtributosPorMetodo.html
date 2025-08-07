@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando atributos e classes</title>
+    <style>
+        .highlight{
+            background-color: yellow;
+            font-weight: bold;
+        }
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="myDiv" class="highlight" data-info="informção original">
+        Este é um exemplo de div
+    </div>
+
+    <button id="btn-get-attr">Obter atributo data-info</button>
+    <button id="btn-set-attr">Alterar atributo data-info</button>
+    <button id="btn-add-class">Adicionar classe hidden</button>
+    <button id="btn-remove-class">Remover classe highlight</button>
+    <button id="btn-toggle-class">alternar classe highlight</button>
+
+    <script>
+        //Selecionar o elemento <div>
+            const div = document.getElementById('myDiv');
+
+            //Obter atributo com getAttribute
+            document.getElementById('btn-get-attr').addEventListener('click', function(){
+                const info = div.getAttribute('data-info');
+                alert(`Atributo data-info: ${info}`);
+            });
+
+            //Alterar o atributo com setAttribute
+            document.getElementById('btn-set-attr').addEventListener('click', function(){
+                div.setAttribute('data-info', 'Informação alterada!');
+                alert('Atributo data-info alterado para: '+div.getAttribute('data-info'));
+            });
+
+            //*** Classes ***
+
+            //Adicionar classe com classList.add
+            document.getElementById('btn-add-class').addEventListener('click', function(){
+                div.classList.add('hidden');
+                alert('Classe hidden adicionada'); //Faz a div ficar "escondida"
+            });
+
+            //Remover classe com classList.remove
+            document.getElementById('btn-remove-class').addEventListener('click', function(){
+                div.classList.remove('highlight');
+                alert('A classe highlight foi removida');
+            });
+
+            //Alternar classes com classList.toggle
+            //Botão liga e desliga do highlight
+            document.getElementById('btn-toggle-class').addEventListener('click', function(){
+                div.classList.toggle('highlight');
+                const status = div.classList.contains('highlight')? 'adicionada' : 'removida';
+                alert(status)
+            });
+
+
+
+    </script>
+
+
+</body>
+</html>
