@@ -16,6 +16,37 @@
     1. Utilize getElementById ou getElementsByTagName para capturar o segundo parágrafo.-->
 </head>
 <body>
-    
+  <section id="resolucao1">
+    <!--Utilizando getElementById-->
+    <h1>Bem vindo à página de exercícios DOM</h1>
+    <p id="paragrafo1">Este é o parágrafo 1</p>
+    <p id="paragrafo2">Este é o parágrafo 2</p>
+    <button id="btn-exibirTexto">Exibir texto</button>
+
+    <script>
+      const paragrafo2 = document.getElementById('paragrafo2');
+      const botaoExibirTexto = document.getElementById('btn-exibirTexto')
+      botaoExibirTexto.addEventListener('click', function(){
+        alert(`O texto escrito no parágrafo 2 é: ${paragrafo2.innerText}`);
+      });
+    </script>
+
+  </section>
+  <br><br><br>
+  <section id="Resolucao2">
+    <!--Utilizando getElementByTagName-->
+    <h1>Bem vindo à página de exercícios DOM</h1>
+    <p id="paragrafoPrim">Este é o parágrafo 1</p>
+    <p id="paragrafoSeg">Este é o parágrafo 2</p>
+    <button id="btn-exibirTexto1">Exibir texto</button>
+
+    <script>
+      const segundoParagrafo = document.getElementsByTagName('p');
+      const btnTexto = document.getElementById('btn-exibirTexto1').addEventListener('click', function(){
+        alert(`O texto escrito no parágrafo 2 é: ${segundoParagrafo[1].innerText}`);
+      });
+    </script>
+  </section>
+   
 </body>
 </html>
