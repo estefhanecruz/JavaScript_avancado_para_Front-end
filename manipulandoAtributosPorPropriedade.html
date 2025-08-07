@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulando HTML, textos, atributos e estilos</title>
+    <style>
+        .container{
+            border: 2px solid black;
+            padding: 10px;
+            width: 300px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <div class="container" id="myDiv">
+        <h2>Título original</h2>
+        <p>Texto do parágrafo original.</p>
+    </div>
+
+    <button id="btn-alterar-html">Alterar HTML</button>
+    <button id="btn-alterar-texto">Alterar texto</button>
+    <button id="btn-alterar-atributos">Alterar atributos</button>
+    <button id="btn-alterar-estilos">Alterar estilos</button>
+
+    <script>
+        //Selecionar o elemento <div>
+        const div = document.getElementById('myDiv');
+        
+        //Alterar o conteúdo HTML com innerHTML
+        document.getElementById('btn-alterar-html').addEventListener('click', function(){       
+            div.innerHTML = '<h2>HTML alterado</h2><p>Parágrafo modificado usando innerHTML</p>'
+        });
+
+        //Alterar APENAS O TEXTO com innerText
+        document.getElementById('btn-alterar-texto').addEventListener('click', function(){
+            div.innerText = ('Texto alterado com innerText. O HTML não é reconhecido aqui!!!');
+        });
+
+        //Alterar o atributo do elemento (Exemplo: Alterar o ID)
+        document.getElementById('btn-alterar-atributos').addEventListener('click', function(){
+            div.id = 'novoId';
+            alert(`O novo id da div é ${div.id}`);
+        });
+
+        //Alterar o estilo
+        document.getElementById('btn-alterar-estilos').addEventListener('click', function(){
+            div.style.backgroundColor = 'lightblue';
+            div.style.color = 'darkgray';
+        });
+
+    </script>
+
+</body>
+</html>
