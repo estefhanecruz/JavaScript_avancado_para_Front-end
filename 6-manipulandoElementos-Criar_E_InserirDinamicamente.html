@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar e Adicionar Elementos</title>
+    <style>
+        .container{
+            border: 2px solid black;
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="myContainer">
+        <h2>Título do container</h2>
+        <p>Conteúdo original</p>
+
+    </div>
+    <button id="btn-add-element">Adicionar um novo parágrafo</button>
+
+    <script>
+
+        //Selecionar o elemento <div>
+            const container = document.getElementById('myContainer');
+
+        //Adicionar um novo parágrafo com createElement e appendChild
+        document.getElementById('btn-add-element').addEventListener('click', function(){
+            //Criar um novo elemento <p>
+            const newParagraph = document.createElement('p');
+            
+            //Adicionar conteúdo ao novo parágrafo
+            newParagraph.innerText = 'Este é um novo parágrafo adicionado ao container';
+
+            //Adicionar o novo parágrafo ao container
+            container.appendChild(newParagraph);
+        });
+
+    </script>
+
+
+
+</body>
+</html>
