@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de exercícios nº 2 - Manipulando atributos</title>
+
 </head>
 <body>
     <h1>Clique para trocar de imagem</h1>
-    <img id="imagem" src="./Assets/Guimarães Rosa.jpg" alt="">
-    <button id="botao">TROCAR IMAGEM</button>
+    <img id="imagem" src="./Assets/image1.jpg" alt="" width="400">
+    <br><br>
+    <button onclick="alternaImagem()" id="botao">TROCAR IMAGEM</button>
 
-    
     <script>
-        const img = document.getElementById('imagem');
-       document.getElementById('botao').addEventListener('click', function(){
-        img.setAttribute('src', './Assets/Guimarães Rosa (1).jpg');
-       });
+    function alternaImagem(){
+        var img = document.getElementById('imagem');
+        //Verifica a src atual da imagem e alterna entre as duas
+        if(img.src.includes('image1.jpg')){
+            img.src = './Assets/image2.jpg'
+        }else{
+            img.setAttribute('src', './Assets/image1.jpg')
+        }
+        }
 
     </script>
 
