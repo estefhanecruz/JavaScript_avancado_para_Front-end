@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de exercícios nº 2 - Manipulando atributos</title>
+    <style>
+        .hidden{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Clique para trocar de imagem</h1>
+    <img id="imagem" src="./Assets/Guimarães Rosa.jpg" alt="">
+    <button id="botao">TROCAR IMAGEM</button>
+
+    
+    <script>
+        const img = document.getElementById('imagem');
+       document.getElementById('botao').addEventListener('click', function(){
+        img.setAttribute('src', './Assets/Guimarães Rosa (1).jpg');
+       });
+
+    </script>
+
+
+</body>
+</html>
