@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excluir e atualizar dinamicamente</title>
+    <style>
+        .container{
+            border: 2px solid black;
+            padding: 10px;
+            width: 300px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="myContainer">
+        <h2>Título do container</h2>
+        <p id="paragrafo1">Este é o primeiro parágrafo</p>
+        <p id="paragrafo2">Este é o segundo parágrafo</p>
+    </div>
+
+    <button id="btn-remove">Remover o primeiro parágrafo</button>
+    <button id="btn-remove-child">Remover o segundo parágrafo</button>
+    <button id="btn-replace">Substituir Primeiro parágrafo</button>
+    <script>
+
+    //Selecionar o elementos
+    const container = document.getElementById('myContainer');
+    const paragrafo1 = document.getElementById('paragrafo1');
+    const paragrafo2 = document.getElementById('paragrafo2');
+
+    //Remove um elemento com método remove()
+    document.getElementById('btn-remove').addEventListener('click', function(){
+        paragrafo1.remove(); //Remove diretamente o elemento
+        alert('O primeiro parágrafo foi removido');
+    });
+
+    //Remove um elemento com o método removeChild()
+    document.getElementById('btn-remove-child').addEventListener('click', function(){
+        container.removeChild(paragrafo2); //Remove o segundo parágrafo do container
+        alert('O segundo parágrafo foi removido');
+    });
+    //Substituir elemento com replaceChild
+    document.getElementById('btn-replace').addEventListener('click', function(){
+        //Cria um novo parágrafo
+        const newParagraph = document.createElement('p');
+        newParagraph.innerText = 'Este parágrafo substitui o primeiro';
+        
+        //Substituir paragrafo1 por newParagraph
+        container.replaceChild(newParagraph, paragrafo1);
+        alert('O primeiro parágrafo foi substituído');
+    });
+
+    </script>
+
+
+
+</body>
+</html>
