@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio DOM - Lista de tarefas</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Tarefas</h1>
+        <input type="text" id="tarefa">
+        <button id="btn-add">ADICIONAR</button>
+        
+        <ul id="lista">
+            
+        </ul>
+    </div>
+
+    <script>
+        //Adicionando uma nova tarefa à lista
+        const listaDeTarefas = document.getElementById('lista');
+        const tarefa = document.getElementById('tarefa');
+        document.getElementById('btn-add').addEventListener('click', function(){
+            const novaTarefa = document.createElement('li');
+            novaTarefa.innerText = tarefa.value;
+            listaDeTarefas.appendChild(novaTarefa);
+        });
+
+    </script>
+</body>
+</html>
