@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM - parte 1</title>
+    <style>
+        .hover-box{
+            width: 200px;
+            height: 100px;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 20px;
+            transition: background-color 0.3s;
+        }
+        .hovered{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body onload="onPageLoad()">
+    <h1>Exemplo de Eventos Javascript</h1>
+    <button id="btn-click">Clique Aqui</button>
+
+    <form id="myForm" onsubmit="return onFormSubmit(event)">
+        <input type="text" placeholder="Digite algo..." required>
+        <button type="submit">Enviar</button>
+    </form>
+    <div class="hover-box" id="hoverBox">
+        Passe o mouse aqui
+    </div>
+    <script>
+        //Função chamada ao carregar a página
+        function onPageLoad(){
+            alert('Página carregada');
+        };
+        
+        //Evento do clique do botão
+        document.getElementById('btn-click').onclick = function(){
+            alert('Botão clicado!');
+        };
+
+        //Evento de envio do formulário
+        function onFormSubmit(event){
+            event.preventDefault(); //Previne o envio real do formulário
+            alert('formulário enviado!');
+            return false //Retorna falso para evitar o envio
+        };
+        //Evento de mouseenter e mouseleave
+        const hoverBox = document.getElementById('hoverBox');
+
+        hoverBox.onmouseenter = function(){
+            hoverBox.classList.add('hovered'); //Adiciona a classe 'hovered' ao passar com o mouse
+        };
+        hoverBox.onmouseleave = function(){
+            hoverBox.classList.remove('hovered'); //Remove a classe 'hovered' ao sair com o mouse
+        };
+    </script>
+</body>
+</html>

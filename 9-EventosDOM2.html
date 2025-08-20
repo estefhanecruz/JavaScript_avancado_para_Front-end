@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos DOM - Parte 2</title>
+</head>
+<body>
+    <h1>Exemplo de Eventos</h1>
+
+    <label for="name">Digite seu nome</label>
+    <input type="text" id="name" onfocus="onInputFocus()" onchange="onInputChange()">
+    
+    <label for="email">Digite seu email</label>
+    <input type="email" id="email" onchange="onEmailChange()">
+
+    <h2>Pressione uma tecla</h2>
+    <input type="text" id="KeyInput" onkeydown="onKeyDown(event)" onkeyup="onKeyUp(event)" onkeypress="onKeyPress(event)">
+
+    <script>
+        //Evento de foco no input
+        function onInputFocus(){
+            console.log('Campo de texto focado.');
+        };
+
+        //Evento de mudança no Input (onchange)
+        function onInputChange(){
+            const nameInput = document.getElementById('name');
+            console.log('Nome alterado para: '+nameInput.value);
+        };
+
+        //Evento de mudança no Input de email
+        function onEmailChange(){
+            const emailInput = document.getElementById('email');
+            console.log('Email alterado para: '+ emailInput.value);
+        };
+
+        //Evento de pressionar tecla (onKeyDown)
+        function onKeyDown(event){
+            console.log('Tecla pressionada: '+ event.key);
+        }
+
+        //Evento de soltar tecla (onKeyUp)
+        function onKeyUp(event){
+            console.log('Tecla solta: '+ event.key);
+        }
+
+        //Evento de pressionar tecla (onKeyPress)
+        function onKeyPress(event){
+            console.log('Tecla pressionada (keypress): '+ event.key);
+        }
+
+    </script>
+
+    
+</body>
+</html>
