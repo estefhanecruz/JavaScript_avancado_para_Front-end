@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 4 - Eventos do DOM - COntador de cliques (Eventos)</title>
+    <!-- Crie uma página com os seguintes elementos:
+        1. Um título <h1> Contador de cliques 
+        2.Um parágrafo <p> com o texto "Número de cliques: 0";
+        3. Um texto <p> adicional: "Passe o mouse aqui" (Para o evento hover);
+
+        Requisitos:
+        1. Clique no botão: Cada vez que o usuário clicar no botão, o número no primeiro parágrafo
+        deve aumentar e ser atualizado
+        2. Hover no texto: Quando o usuário passar o mouse sobre o segundo parágrafo, o texto deve mudar
+        para "Você passou o mouse"
+        3. Ao carregar a página: Quando a página for carregada, exiba um alert com a mensagem
+        "Bem vindo, visitante!".
+         -->
+    <script>
+        //Variável para contar os cliques
+        var contador = 0;
+
+        //Função para aumentar o contador e atualizar o parágrafo
+        function contarCliques(){
+            contador ++
+            document.getElementById('numeroCliques').textContent = 'Numero de cliques: '+contador
+        }
+        //Função para mudar o texto ao passar o mouse
+        function mouseSobre(){
+            document.getElementById('textHover').textContent = 'Você passou o mouse';
+        }
+        //Função para restaurar o texto original quando o mouse sai
+        function mouseSai(){
+            document.getElementById('textHover').textContent = 'Passe o mouse aqui'
+        }
+        window.onload = function(){
+            alert('Bem vindo, visitante!');
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Contador de cliques</h1>
+    <p id="numeroCliques"> Numero de cliques: 0</p>
+    <button onclick="contarCliques()">CLIQUE AQUI</button>
+    <p id="textHover" onmouseover="mouseSobre()" onmouseout="mouseSai()">Passe o mouse aqui</p>
+</body>
+</html>
