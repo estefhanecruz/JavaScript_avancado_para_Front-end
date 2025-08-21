@@ -10,7 +10,7 @@
     <button id="showLocation">Mostrar Informações da URL</button>
     <button id="goToPage">Ir para o Google</button>
 
-    <div class="info"></div>
+    <div id="info"></div>
 
     <script>
         const infoDiv = document.getElementById('info');
@@ -28,9 +28,15 @@
         });
         //Redirecionar para uma nova página usando assign
         goToPageButton.addEventListener('click', function(){
+            //Redireciona para o google permitindo retorno para a página de origem
             window.location.assign('https://www.google.com');
-            //window.location.replace('https://www.google.com');
-            // window.location.href = 'https://www.google.com'
+            
+            /*Redireciona para o google impedindo retorno para a página de origem, excluindo a página de origem 
+             do histórico de navegação*/
+             //window.location.replace('https://www.google.com'); 
+            
+            /*Funciona como o assign*/
+            //window.location.href = 'https://www.google.com'
 
         });
 
