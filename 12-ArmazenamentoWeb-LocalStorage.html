@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage</title>
+</head>
+<body>
+    <h1>Exemplo de Local Storage</h1>
+    <label for="name">Digite o seu nome</label>
+    <input type="text" id="name" placeholder="Seu nome">
+    <button id="saveButton">Salvar o nome</button>
+    <button id="removeButton">Remover o nome</button>
+    <button id="clearButton">Limpar o LocalStorage</button>
+
+    <div id="display"></div>
+    <script>
+        const nameInput = document.getElementById('name');
+        const saveButton = document.getElementById('saveButton');
+        const removeButton = document.getElementById('removeButton');
+        const clearButton = document.getElementById('clearButton');
+        const displayDiv = document.getElementById('display');
+
+        //Função para exibir o nome armazenado
+        function displayStoredName(){
+            const storedName = localStorage.getItem('userName');
+            if (storedName){
+                displayDiv.innerHTML = `Nome salvo: <strong>${storedName}</strong>`;
+            }else{
+                displayDiv.innerHTML = 'Nenhum nome salvo';
+            }
+
+        }
+        //Carregar nome salvo ao carregar a página
+        window.addEventListener('load', function(){
+            displayStoredName();
+        });
+        
+        //Salvar o nome no localStorage
+        saveButton.addEventListener('click', function(){
+            const userName = nameInput.value;
+            if(userName){
+                localStorage.setItem('userName', userName);
+                displayStoredName();
+                alert('Nome salvo com sucesso');
+            }else{
+                alert('Digite um nome para salvar');
+            }
+        });
+
+        //Remover o nome específico no localStorage
+        removeButton.addEventListener('click', function(){
+            localStorage.removeItem('userName');
+            displayStoredName();
+            alert('Nome removido');
+        });
+        
+        //Limpar todo o localStorage
+        clearButton.addEventListener('click', function(){
+            localStorage.clear();
+            displayStoredName();
+            alert('localStorage limpo');
+        });
+
+
+
+    </script>
+</body>
+</html>
