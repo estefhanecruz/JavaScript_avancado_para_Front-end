@@ -29,18 +29,18 @@
     <button id="navegador">NAVEGAR</button>
     <button id="substituirUrl">SUBSTITUIR URL</button>
     <button id="atribuirUrl">ATRIBUIR URL</button>
-    <button id="exibirUrlAtual">EXIBIR URL ATUAL</button>
+    <p id="urlAtual"></p>
+    
+    
     <div id="info"></div>
 
     <script>
-        const btnExibirUrl = document.getElementById('exibirUrlAtual');
+        
         const info = document.getElementById('info');
 
-        btnExibirUrl.addEventListener('click', function(){
-            info.innerHTML = `
-            <p><strong>URL Completa (href): </strong> ${window.location.href}</p>
-            `
-        });
+        window.onload = function(){
+            document.getElementById('urlAtual').textContent = 'url atual: '+window.location.href;
+        }
 
         const btnNavegar = document.getElementById('navegador');
         var url = document.getElementById('url');
